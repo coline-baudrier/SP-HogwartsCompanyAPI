@@ -5,6 +5,8 @@ import com.hogwartscompany.phonebook.controller.always.model.Always;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,9 +22,15 @@ public class AlwaysController {
         this.alwaysBusiness = alwaysBusiness;
     }
 
-    @GetMapping(version + "/always")
-    public List<Always> getAll() {
-        return alwaysBusiness.getAllService();
+    @GetMapping(version + "/always/allInfos")
+    public List<Always> getAllInfos(
+            @RequestParam(value = "idEmployee", required = false) Integer idEmployee,
+            @RequestParam(value = "idService", required = false) Integer idService,
+            @RequestParam(value = "idWorksite", required = false) Integer idWorksite,
+            @RequestParam(value = "nameEmployee", required = false) String nameEmployee,
+            @RequestParam(value = "nameService", required = false) String nameService,
+            @RequestParam(value = "nameWorksite", required = false) String nameWorksite
+    ) {
+        return alwaysBusiness.getALlInfosService(idEmployee, idService, idWorksite, nameEmployee, nameService, nameWorksite);
     }
-
 }

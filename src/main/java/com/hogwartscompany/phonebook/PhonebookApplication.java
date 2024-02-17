@@ -39,5 +39,4 @@ public class PhonebookApplication {
 				mapperEmployee, mapperAddress, mapperWorksite, mapperServiceSite
 		);
 	}
-
 }

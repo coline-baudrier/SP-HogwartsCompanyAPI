@@ -28,8 +28,8 @@ public class AlwaysBusiness {
         this.addressDAO = addressDAO;
     }
 
-    public List<Always> getAllService() {
-        return alwaysDAO.getAll();
+    public List<Always> getALlInfosService(Integer idEmployee, Integer idService, Integer idWorksite, String nameEmployee, String nameService, String nameWorksite) {
+        return alwaysDAO.getALlInfos(idEmployee, idService, idWorksite, nameEmployee, nameService, nameWorksite);
     }
 
 }

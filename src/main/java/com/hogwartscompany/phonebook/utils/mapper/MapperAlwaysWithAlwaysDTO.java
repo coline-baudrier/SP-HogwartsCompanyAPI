@@ -28,12 +28,12 @@ public class MapperAlwaysWithAlwaysDTO {
         return dto;
     }
 
-    public Always DTOToAlways (AlwaysDTO alwaysDTO) {
+    public Always DTOToAlways (AlwaysDTO dto) {
         Always always = new Always();
-        always.setEmployee(mapperEmployee.DTOToEmployee(alwaysDTO.getEmployeeDTO()));
-        always.setServiceSite(mapperServiceSite.DTOToService(alwaysDTO.getServiceSiteDTO()));
-        always.setWorksite(mapperWorksite.DTOToWorksite(alwaysDTO.getWorksiteDTO()));
-        always.setAddress(mapperAddress.DTOToAddress(alwaysDTO.getAddressDTO()));
+        always.setEmployee(mapperEmployee.DTOToEmployee(dto.getEmployeeDTO()));
+        always.setServiceSite(mapperServiceSite.DTOToService(dto.getServiceSiteDTO()));
+        always.setWorksite(mapperWorksite.DTOToWorksite(dto.getWorksiteDTO()));
+        always.setAddress(mapperAddress.DTOToAddress(dto.getAddressDTO()));
 
         return always;
     }

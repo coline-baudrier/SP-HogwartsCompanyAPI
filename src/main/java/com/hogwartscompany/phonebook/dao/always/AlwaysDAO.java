@@ -82,25 +82,43 @@ public class AlwaysDAO {
         return always;
     };
 
+
     //Informations des employés
-
-    //Information sur un employé
-
-    //Informations des services
-
-    //Information sur un service
-
-    //Informations des sites
-
-    //Informations sur un site
-
-    //Recherche totale
-
-    public List<Always> getAll() {
+    public List<Always> getALlInfos(Integer idEmployee, Integer idService, Integer idWorksite, String nameEmployee, String nameService, String nameWorksite) {
         List<Always> listAlways = null;
         Always resp = null;
 
-        String sqlQuery = "SELECT * FROM employee e JOIN service s ON e.service_employee = s.id_service JOIN worksite w ON s.worksite_of_service = w.id_worksite JOIN address a ON w.address_worksite = a.id_address WHERE e.id_employee = 37";
+        String sqlQuery = "SELECT e.*, s.*, w.*, a.* " +
+                "FROM employee e " +
+                "JOIN service s ON e.SERVICE_EMPLOYEE = s.ID_SERVICE " +
+                "JOIN address a ON s.ADDRESS_SERVICE = a.ID_ADDRESS " +
+                "JOIN WORKSITE w ON s.WORKSITE_OF_SERVICE = w.ID_WORKSITE";
+
+        boolean whereAdded = false; // Utilisé pour gérer l'ajout correct de la clause WHERE
+
+        if (idEmployee != null && idEmployee != 0) {
+            sqlQuery += " WHERE e.id_employee = " + idEmployee;
+            whereAdded = true;
+        }
+        if (idService != null && idService != 0) {
+            sqlQuery += (whereAdded ? " AND" : " WHERE") + " s.id_service = " + idService;
+            whereAdded = true;
+        }
+        if (idWorksite != null && idWorksite != 0) {
+            sqlQuery += (whereAdded ? " AND" : " WHERE") + " w.id_worksite = " + idWorksite;
+            whereAdded = true;
+        }
+        if (nameEmployee != null && !nameEmployee.isEmpty()) {
+            sqlQuery += (whereAdded ? " AND" : " WHERE") + " (e.first_name LIKE '%" + nameEmployee + "%' OR e.last_name LIKE '%" + nameEmployee + "%')";
+            whereAdded = true;
+        }
+        if (nameService != null && !nameService.isEmpty()) {
+            sqlQuery += (whereAdded ? " AND" : " WHERE") + " s.name_service LIKE '%" + nameService + "%'";
+            whereAdded = true;
+        }
+        if (nameWorksite != null && !nameWorksite.isEmpty()) {
+            sqlQuery += (whereAdded ? " AND" : " WHERE") + " w.name_worksite LIKE '%" + nameWorksite + "%'";
+        }
 
         List<AlwaysDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,
