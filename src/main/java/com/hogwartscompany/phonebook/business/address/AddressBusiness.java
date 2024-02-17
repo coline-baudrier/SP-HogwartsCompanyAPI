@@ -28,7 +28,7 @@ public class AddressBusiness {
     public Address getOneAddressService(int id) {
         return addressDAO.getOne(id);
     }
-    public List<Address> getAllAddressService(String buildingName, String departmentCode, String cityName){
-        return addressDAO.getAll(buildingName, departmentCode, cityName);
+    public List<Address> getAllAddressService(){
+        return addressDAO.getAll();
     }
 }

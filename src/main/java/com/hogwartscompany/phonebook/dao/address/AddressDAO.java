@@ -64,24 +64,12 @@ public class AddressDAO {
         return address;
     }
 
-    public List<Address> getAll (String buildingName, String departmentCode, String cityName) {
+    public List<Address> getAll () {
         //Lis les informations de toutes les adresses de la BDD
         List<Address> listAddresses = null;
         Address resp = null;
 
         String sqlQuery = "SELECT * FROM address";
-
-        if (buildingName != null && !buildingName.isEmpty()) {
-            sqlQuery += " WHERE building LIKE '%" + buildingName + "%'";
-        }
-
-        if (departmentCode != null && !departmentCode.isEmpty()) {
-            sqlQuery += " WHERE department LIKE '%" + departmentCode + "%'";
-        }
-
-        if (cityName != null && !cityName.isEmpty()) {
-            sqlQuery += " WHERE city LIKE '%" + cityName + "%'";
-        }
 
         List<AddressDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,

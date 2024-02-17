@@ -6,10 +6,10 @@ import com.hogwartscompany.phonebook.dao.service.model.ServiceSiteDTO;
 import com.hogwartscompany.phonebook.dao.worksite.model.WorksiteDTO;
 
 public class AlwaysDTO {
-    private EmployeeDTO employeeDTO;
-    private ServiceSiteDTO serviceSiteDTO;
-    private WorksiteDTO worksiteDTO;
-    private AddressDTO addressDTO;
+    EmployeeDTO employeeDTO;
+    ServiceSiteDTO serviceSiteDTO;
+    WorksiteDTO worksiteDTO;
+    AddressDTO addressDTO;
 
     public EmployeeDTO getEmployeeDTO() {
         return employeeDTO;

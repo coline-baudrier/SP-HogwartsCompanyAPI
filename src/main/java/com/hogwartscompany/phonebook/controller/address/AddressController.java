@@ -37,11 +37,8 @@ public class AddressController {
         return addressBusiness.getOneAddressService(id);
     }
     @GetMapping(version + "/addresses")
-    public List<Address> getAllAddresses(
-            @RequestParam(value = "buildingName", required = false) String nameBuilding,
-            @RequestParam(value = "departmentCode", required = false) String departmentCode,
-            @RequestParam(value = "cityName", required = false) String cityName)
+    public List<Address> getAllAddresses()
             {
-        return addressBusiness.getAllAddressService(nameBuilding,departmentCode,cityName);
+        return addressBusiness.getAllAddressService();
     }
 }

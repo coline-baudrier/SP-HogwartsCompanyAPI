@@ -22,7 +22,6 @@ dependencies {
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.3' // Dépendance pour le pilote JDBC MariaDB
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 }
 
 tasks.named('test') {

@@ -1,9 +1,6 @@
 package com.hogwartscompany.phonebook;
 
-import com.hogwartscompany.phonebook.utils.mapper.MapperAddressWithAddressDTO;
-import com.hogwartscompany.phonebook.utils.mapper.MapperEmployeeWithEmployeeDTO;
-import com.hogwartscompany.phonebook.utils.mapper.MapperServiceWithServiceSiteDTO;
-import com.hogwartscompany.phonebook.utils.mapper.MapperWorksiteWithWorksiteDTO;
+import com.hogwartscompany.phonebook.utils.mapper.*;
 import org.apache.catalina.mapper.Mapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +8,10 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class PhonebookApplication {
+	MapperEmployeeWithEmployeeDTO mapperEmployee = new MapperEmployeeWithEmployeeDTO();
+	MapperAddressWithAddressDTO mapperAddress = new MapperAddressWithAddressDTO();
+	MapperWorksiteWithWorksiteDTO mapperWorksite = new MapperWorksiteWithWorksiteDTO();
+	MapperServiceWithServiceSiteDTO mapperServiceSite = new MapperServiceWithServiceSiteDTO();
 
 	public static void main(String[] args) {
 		SpringApplication.run(PhonebookApplication.class, args);
@@ -32,4 +33,11 @@ public class PhonebookApplication {
 	public MapperEmployeeWithEmployeeDTO mapperEmployeeWithEmployeeDTO() {
 		return new MapperEmployeeWithEmployeeDTO();
 	}
+	@Bean
+	public MapperAlwaysWithAlwaysDTO mapperAlwaysWithAlwaysDTO() {
+		return new MapperAlwaysWithAlwaysDTO(
+				mapperEmployee, mapperAddress, mapperWorksite, mapperServiceSite
+		);
+	}
+
 }
