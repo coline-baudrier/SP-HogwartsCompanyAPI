@@ -24,7 +24,7 @@ phone_worksite VARCHAR(255) NOT NULL,
 email_worksite VARCHAR(255) NOT NULL,
 address_worksite INT(3) NOT NULL,
 PRIMARY KEY (id_worksite),
-FOREIGN KEY(address_worksite) REFERENCES address(id_address)
+FOREIGN KEY(address_worksite) REFERENCES address(id_address) ON DELETE RESTRICT
 );
 
 CREATE TABLE service (
@@ -37,8 +37,8 @@ date_of_creation TIMESTAMP NOT NULL,
 address_service INT(3) NOT NULL,
 worksite_of_service INT(3) NOT NULL,
 PRIMARY KEY (id_service),
-FOREIGN KEY (address_service) REFERENCES address(id_address),
-FOREIGN KEY (worksite_of_service) REFERENCES worksite(id_worksite)
+FOREIGN KEY (address_service) REFERENCES address(id_address) ON DELETE RESTRICT,
+FOREIGN KEY (worksite_of_service) REFERENCES worksite(id_worksite) ON DELETE RESTRICT
 );
 
 CREATE TABLE employee (
@@ -54,7 +54,7 @@ birthdate TIMESTAMP NOT NULL,
 hiring_date TIMESTAMP NOT NULL,
 admin_application BOOLEAN NOT NULL,
 PRIMARY KEY (id_employee),
-FOREIGN KEY (service_employee) REFERENCES service(id_service)
+FOREIGN KEY (service_employee) REFERENCES service(id_service) ON DELETE RESTRICT
 );
 
 INSERT INTO address (building_floor, building, address_line_1, address_line_2, department, city)

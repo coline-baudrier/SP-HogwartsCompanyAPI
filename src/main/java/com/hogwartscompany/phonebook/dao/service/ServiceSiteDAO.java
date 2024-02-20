@@ -149,10 +149,11 @@ public class ServiceSiteDAO {
         List<ServiceSite> listService = null;
         ServiceSite resp = null;
 
-        String sqlQuery = "SELECT * FROM service WHERE name_service LIKE '%" + searchServiceSite +"%'" ;
+        String sqlQuery = "SELECT * FROM service WHERE name_service LIKE ?" ;
 
         List<ServiceSiteDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,
+                new Object[]{"%" + searchServiceSite + "%"},
                 this.rowMapper
         );
 

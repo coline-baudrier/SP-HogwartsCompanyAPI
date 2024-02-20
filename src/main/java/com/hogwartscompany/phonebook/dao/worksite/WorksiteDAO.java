@@ -141,10 +141,11 @@ public class WorksiteDAO {
         List<Worksite> listWorksite = null;
         Worksite resp = null;
 
-        String sqlQuery = "SELECT * FROM worksite WHERE name_worksite LIKE '%" + searchWorksite + "%'";
+        String sqlQuery = "SELECT * FROM worksite WHERE name_worksite LIKE ?";
 
         List<WorksiteDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,
+                new Object[]{"%" + searchWorksite + "%"},
                 this.rowMapper
         );
 

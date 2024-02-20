@@ -162,10 +162,11 @@ public class EmployeeDAO {
         List<Employee> listEmployee = null;
         Employee resp = null;
 
-        String sqlQuery = "SELECT * FROM employee WHERE last_name LIKE '%" + searchEmployee + "%' OR first_name LIKE '%" + searchEmployee + "%'";
+        String sqlQuery = "SELECT * FROM employee WHERE last_name LIKE ? OR first_name LIKE ?";
 
         List<EmployeeDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,
+                new Object[]{"%" + searchEmployee + "%", "%" + searchEmployee + "%"},
                 this.rowMapper
         );
 
