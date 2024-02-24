@@ -91,6 +91,28 @@ public class EmployeeDAO {
         return listEmployee;
     }
 
+    public List<Employee> getEmployeesByService (int idService) {
+        List<Employee> listEmployee = null;
+        Employee resp = null;
+
+        String sqlQuery = "SELECT * FROM employee WHERE service_employee = " + idService;
+
+        List<EmployeeDTO> dtos = this.jdbcTemplate.query(
+                sqlQuery,
+                this.rowMapper
+        );
+
+        if (dtos != null && dtos.size() > 0) {
+            listEmployee = new ArrayList<Employee>();
+
+            for (EmployeeDTO dto : dtos) {
+                resp = mapperEmployeeWithEmployeeDTO.DTOToEmployee(dto);
+                listEmployee.add(resp);
+            }
+        }
+        return listEmployee;
+    }
+
     public Employee create(NewEmployee employee) {
         EmployeeDTO employee1 = null;
         Employee employee2 = null;

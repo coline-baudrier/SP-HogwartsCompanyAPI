@@ -34,4 +34,8 @@ public class EmployeeBusiness {
     public List<Employee> searchEmployeeByNameService(String searchEmployee) {
         return employeeDAO.searchEmployeeByName(searchEmployee);
     }
+
+    public List<Employee> getEmployeesByServiceService(int idService) {
+        return employeeDAO.getEmployeesByService(idService);
+    }
 }

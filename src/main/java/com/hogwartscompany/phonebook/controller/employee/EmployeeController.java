@@ -44,4 +44,9 @@ public class EmployeeController {
     public List<Employee> searchEmployeeByName(@RequestParam String searchEmployee) {
         return employeeBusiness.searchEmployeeByNameService(searchEmployee);
     }
+
+    @GetMapping(version + "/employees/searchByService/{idService}")
+    public List<Employee> getEmployeesByService(@PathVariable int idService) {
+        return employeeBusiness.getEmployeesByServiceService(idService);
+    }
 }

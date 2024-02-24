@@ -44,4 +44,9 @@ public class ServiceSiteController {
     public List<ServiceSite> searchServiceSiteByName(@RequestParam String searchServiceSite) {
         return serviceSiteBusiness.searchServiceSiteByNameService(searchServiceSite);
     }
+
+    @GetMapping(version + "/services/searchByWorksite/{idWorksite}")
+    public List<ServiceSite> getServiceByWorksite(@PathVariable int idWorksite) {
+        return serviceSiteBusiness.getServicesByWorksiteService(idWorksite);
+    }
 }

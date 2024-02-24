@@ -35,4 +35,7 @@ public class ServiceSiteBusiness {
     public List<ServiceSite> searchServiceSiteByNameService(String searchServiceSite) {
         return serviceSiteDAO.searchServiceSiteByName(searchServiceSite);
     }
+    public List<ServiceSite> getServicesByWorksiteService(int idWorksite) {
+        return serviceSiteDAO.getServicesByWorksite(idWorksite);
+    }
 }

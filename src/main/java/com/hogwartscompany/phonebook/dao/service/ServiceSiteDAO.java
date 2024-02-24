@@ -62,11 +62,34 @@ public class ServiceSiteDAO {
         return service;
     }
 
+
     public List<ServiceSite> getAll () {
         List<ServiceSite> listService = null;
         ServiceSite resp = null;
 
         String sqlQuery = "SELECT * FROM service";
+
+        List<ServiceSiteDTO> dtos = this.jdbcTemplate.query(
+                sqlQuery,
+                this.rowMapper
+        );
+
+        if (dtos != null && dtos.size() > 0) {
+            listService = new ArrayList<ServiceSite>();
+
+            for (ServiceSiteDTO dto : dtos) {
+                resp = mapperServiceWithServiceDTO.DTOToService(dto);
+                listService.add(resp);
+            }
+        }
+        return listService;
+    }
+
+    public List<ServiceSite> getServicesByWorksite (int idWorksite) {
+        List<ServiceSite> listService = null;
+        ServiceSite resp = null;
+
+        String sqlQuery = "SELECT * FROM service WHERE worksite_of_service = " + idWorksite;
 
         List<ServiceSiteDTO> dtos = this.jdbcTemplate.query(
                 sqlQuery,
