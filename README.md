@@ -79,8 +79,63 @@ Pour réaliser ce projet, différents choix techniques ont été réalisés :
   
 ## ✔️ Liste des tâches
 
-### API 
-### Client lourd
+La liste des tâches concernent l'API et le client lourd. Concernant la base de données, le MCD, le MLD et le jeu de données spécifique a été créé et se trouve dans */resources/sql*.
+
+### ️ ✔️ API
+- [x] Class pour Worksite
+- [x] Class pour Service
+- [x] Class pour Employee
+- [x] Class pour Address
+- [x] DAO pour Worksite
+- [x] DAO pour Service
+- [x] DAO pour Employee
+- [x] DAO pour Address
+- [x] Méthode CRUD pour Worksite
+- [x] Méthode CRUD pour Service
+- [x] Méthode CRUD pour Employee
+- [x] Méthode CRUD pour Address
+- [x] Business pour Worksite
+- [x] Business pour Service
+- [x] Business pour Employee
+- [x] Business pour Address
+- [x] Controller pour Worksite
+- [x] Controller pour Service
+- [x] Controller pour Employee
+- [x] Controller pour Address
+- [x] Requêtes SQL sécurisées (pas d'injection de données)
+
+### ✔️ Client lourd
+- [x] Page de connexion
+- [x] Connexion administrateur avec combinaison de touches
+- [x] Condition d'utilisation si administrateur ou non
+- [x] Page d'accueil
+- [x] Liste des Worksites
+- [x] Détail d'un Worksite
+- [x] Ajout d'un Worksite
+- [x] Suppression d'un Worksite
+- [x] Modification d'un Worksite
+- [x] Liste des Services
+- [x] Détail d'un Service
+- [x] Ajout d'un Service
+- [x] Suppression d'un Service
+- [x] Modification d'un Service
+- [x] Liste des Employees
+- [x] Détail d'un Employee
+- [x] Ajout d'un Employee
+- [x] Suppression d'un Employee
+- [x] Modification d'un Employee
+- [x] Recherche d'un Worksite par son nom
+- [x] Recherche d'un Service par son nom
+- [x] Recherche d'un employé par son nom ou son prénom
+- [x] Système de déconnexion 
+- [x] Instance d'un user
+- [x] Vérification de la composition d'un numéro de téléphone
+- [x] Vérification de la composition d'une adresse email 
+- [ ] Vérification de l'existence d'un ID lié
+- [x] Gestion de la création d'ID par deux personnes en même temps
+- [x] Vérification de plusieurs instances lancées en même temps 
+- [x] Vérification de la gestion des modifications/ajouts/suppressions sur deux instances
+
 
 ## 📑 Base de données 
 La base de données est composée de quatre tables : vous pouvez trouver les fichiers concernés dans */resources/sql*.
