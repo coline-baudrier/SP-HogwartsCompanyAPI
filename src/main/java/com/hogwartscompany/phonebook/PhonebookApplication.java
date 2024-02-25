@@ -17,6 +17,7 @@ public class PhonebookApplication {
 		SpringApplication.run(PhonebookApplication.class, args);
 	}
 
+	//Les @Bean permettent d'utiliser les mappers dans l'application
 	@Bean
 	public MapperAddressWithAddressDTO mapperAddressWithAddressDTO(){
 		return new MapperAddressWithAddressDTO();
